@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import opneMenuIcon from "../../images/menu-icon.png";
-import closeMenuIcon from "../../images/menu-close.png";
-import instragramIcon from "../../images/instagram.png";
-import vkIcon from "../../images/vk.png";
+import React, { useState } from 'react';
+import logo from '../../images/logo.png';
+import opneMenuIcon from '../../images/menu-open.svg';
+import closeMenuIcon from '../../images/menu-close.svg';
+import instragramIcon from '../../images/instagram.png';
+import vkIcon from '../../images/vk.png';
 import {
   Collapse,
   Navbar,
@@ -11,56 +12,56 @@ import {
   Nav,
   NavItem,
   NavLink
-} from "reactstrap";
-
+} from 'reactstrap';
+import './NavBar.style.scss';
 export const NavBar = props => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <div>
-      <Navbar color="faded" dark>
-        <NavbarBrand href="/" className="mr-auto">
-          LOGO
+    <div className='mb-5'>
+      <Navbar color='faded' dark>
+        <NavbarBrand href='/' className='mr-auto'>
+          <img src={logo} alt='logo' />
         </NavbarBrand>
-        <Nav className="mr-4">
-          <NavItem>
-            <NavLink className="nav-item_text text-white m-2" href="/">
+        <Nav className='mr-4'>
+          <NavItem className='m-2'>
+            <NavLink className=' text-white p-0 pt-1 nav-item_text' href='/'>
               8 499 999 99 99
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className='m-2'>
             <NavLink
-              className="p-0 m-2"
-              href="https://github.com/reactstrap/reactstrap"
+              className='p-0'
+              href='https://github.com/reactstrap/reactstrap'
             >
-              <img src={instragramIcon} alt="instagram" />
+              <img src={instragramIcon} alt='instagram' />
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className='m-2'>
             <NavLink
-              className="p-0 m-2"
-              href="https://github.com/reactstrap/reactstrap"
+              className='p-0'
+              href='https://github.com/reactstrap/reactstrap'
             >
-              <img src={vkIcon} alt="vk" />
+              <img src={vkIcon} alt='vk' />
             </NavLink>
           </NavItem>
         </Nav>
         <NavbarToggler
-          style={{ outline: "none" }}
+          style={{ outline: 'none' }}
           onClick={toggleNavbar}
-          className="mr-2 border-0 "
+          className='mr-2 border-0 '
         >
-          <img src={collapsed ? opneMenuIcon : closeMenuIcon} alt="menu icon" />
+          <img src={collapsed ? opneMenuIcon : closeMenuIcon} alt='menu icon' />
         </NavbarToggler>
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href='/components/'>Components</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
+              <NavLink href='https://github.com/reactstrap/reactstrap'>
                 GitHub
               </NavLink>
             </NavItem>
